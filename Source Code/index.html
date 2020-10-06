@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" />
+        <link rel="stylesheet" href="css/menu.css">
+        <link rel="stylesheet" href="css/bar_graph.css">
+        <link rel="stylesheet" href="css/histogram.css">
+        <link rel="stylesheet" href="css/map.css">
+    </head>
+
+    <body>
+
+        <div class="header">
+            World Statistics
+        </div>
+
+        <!-- Tabs -->
+        <div class="tab topnav" id="myTopnav">
+
+            <button class="dropbtn" onclick="openTab(event, 'home')" id="defaultOpen"> Home </button>
+
+            <div class="dropdown">
+                <button class="dropbtn"> Location </button>
+                <div class="dropdown-content">
+                    <a href="#region" class="tablinks" onclick="openTab(event, 'Region')">Region</a>
+                    <a href="#population_density" class="tablinks" onclick="openTab(event, 'Population_Density_Categories')">Population Density</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn"> Health </button>
+                <div class="dropdown-content">
+                    <a href="#health_expenditure" class="tablinks" onclick="openTab(event, 'Health_Expenditure')">Health Expenditure</a>
+                    <a href="#life_expectancy" class="tablinks" onclick="openTab(event, 'Life_Expectancy')">Life Expectancy</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn"> Education </button>
+                <div class="dropdown-content">
+                    <a href="#education_expenditure" class="tablinks" onclick="openTab(event, 'Education_Expenditure')">Education Expenditure</a>
+                    <a href="#mean_years_in_school" class="tablinks" onclick="openTab(event, 'Mean_years_in_school')">Mean years in School</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn" onclick="openTab(event, 'Economy')"> Economy </button>
+                <div class="dropdown-content">
+                    <a href="#income" class="tablinks" onclick="openTab(event, 'Average_Income')">Income</a>
+                    <a href="#employment_rate" class="tablinks" onclick="openTab(event, 'Employment_Rate_Categories')">Employment Rate</a>
+                    <a href="#income_inequality" class="tablinks" onclick="openTab(event, 'Income_Inequality_Categories')">Income Inequality</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn" onclick="openTab(event, 'Deaths')"> Deaths </button>
+                <div class="dropdown-content">
+                    <a href="#child_mortality_rate" class="tablinks" onclick="openTab(event, 'Child_Mortality_Rate')">Child Mortality Rate</a>
+                    <a href="#adult_mortality_rate" class="tablinks" onclick="openTab(event, 'Adult_Mortality_Rate')">Adult Mortality Rate</a>
+                    <a href="#suicides" class="tablinks" onclick="openTab(event, 'Suicides')">Suicides</a>
+                    <a href="#murders" class="tablinks" onclick="openTab(event, 'Murders')">Murders</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn" onclick="openTab(event, 'Society')"> Society </button>
+                <div class="dropdown-content">
+                    <a href="#military_expenditure" class="tablinks" onclick="openTab(event, 'Military_Expenditure')">Military Expenditure</a>
+                    <a href="#corruption_perception" class="tablinks" onclick="openTab(event, 'Corruption_Perception_Categories')">Corruption Perception</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Tab Content -->
+        <div id="home" class="tabcontent"></div>
+
+        <div id="Region" class="tabcontent">
+          <h3 align="center">Region</h3>
+        </div>
+
+        <div id="Population_Density_Categories" class="tabcontent">
+          <h3 align="center">Population Densitity</h3>
+          <div class="date-dropdown" align="center"></div>
+        </div>
+
+        <div id="Health_Expenditure" class="tabcontent">
+          <h3 align="center">Health Expenditure</h3>
+          <div class="chart-container" align="center">
+            <form class="controls">
+                Spent By:
+                 <label>
+                  <label><input type="radio" name="market" value="Health_Expenditure_Govt_Categories" checked> Government </label>
+                  <label><input type="radio" name="market" value="Health_Expenditure_Pvt_Categories"> Private Firms </label>
+                  <label><input type="radio" name="market" value="Health_Expenditure_Indv_Categories"> Individual </label>
+                </label>
+            </form>
+            <svg class="chart js-chart"></svg>
+          </div>
+        </div>
+
+        <div id="Common" class="tabcontent">
+          <h3 id="common-h3" align="center">  </h3>
+          <div id="histogram_container" align="center">
+              <div id="histogram"></div>
+              <div>
+                  <p>
+                      <label for="bins">Number of bins:</label>
+                      <input type="text" id="bins" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                  </p>
+                  <div id="slider-range-max"></div>
+              </div>
+          </div>
+        </div>
+
+        <div id="Life_Expectancy" class="tabcontent">
+        </div>
+
+        <div id="Education_Expenditure" class="tabcontent">
+        </div>
+
+        <div id="Mean_years_in_school" class="tabcontent">
+        </div>
+
+        <div id="Average_Income" class="tabcontent">
+        </div>
+
+        <div id="Employment_Rate_Categories" class="tabcontent">
+          <h3 align="center">Employment Rate</h3>
+        </div>
+
+        <div id="Income_Inequality_Categories" class="tabcontent">
+          <h3 align="center">Income Inequality</h3>
+        </div>
+
+        <div id="Child_Mortality_Rate" class="tabcontent">
+        </div>
+
+        <div id="Adult_Mortality_Rate" class="tabcontent">
+        </div>
+
+        <div id="Suicides" class="tabcontent">
+        </div>
+
+        <div id="Murders" class="tabcontent">
+        </div>
+
+        <div id="Military_Expenditure" class="tabcontent">
+        </div>
+
+        <div id="Corruption_Perception_Categories" class="tabcontent">
+          <h3 align="center">Corruption Perception</h3>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="https://d3js.org/queue.v1.min.js"></script>
+        <script src="https://d3js.org/topojson.v1.min.js"></script>
+        <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+        <script type="text/javascript" src="index.js" />
+
+    </body>
+</html>
